@@ -41,33 +41,19 @@ export default class App extends Component {
           operator:e.target.id,
         });
     }
-      else
+    else
       {
-        if(e.target.id=='C')
-        {
-          this.setState({
-            value:"",
-            operator:"",
-          });
-        }
-        else
+        if(e.target.id!='C')
         {
           var n2=this.state.value;
           var op=this.state.operator;
-          if(op=='+')
-          alert(this.state.n1 +" + "+n2+" is : "+parseFloat(parseFloat(this.state.n1)+parseFloat(n2)));
-          else if(op=='-')
-          alert(this.state.n1+" - " +n2+" is : "+parseFloat(parseFloat(this.state.n1)-parseFloat(n2)));
-          else if(op=='*')
-          alert(this.state.n1+" * "+n2+" is : "+parseFloat(parseFloat(this.state.n1)*parseFloat(n2)));
-          else
-          alert(this.state.n1+" / "+n2+" is: "+parseFloat(parseFloat(this.state.n1)/parseFloat(n2)));
-          this.setState({
-            value:"",
-            operator:"",
-          });
+          alert(this.state.n1 + op + n2+" : "+eval(this.state.n1+op+n2))
         }
-        }
+        this.setState({
+          value:"",
+          operator:"",
+        });
+      }
   }
 
  changeTboxValue(e)
